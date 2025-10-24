@@ -11,9 +11,10 @@ import (
 
 func task5() {
 
-	fmt.Println("	Task5: Binary, Hex, and Base64 Encoding")
+	fmt.Println("	📋Task5: Binary, Hex, and Base64 Encoding")
 
 	reader := bufio.NewReader(os.Stdin)
+	reader.ReadString('\n')
 
 	fmt.Print("Enter text: ")
 	text, _ := reader.ReadString('\n') 

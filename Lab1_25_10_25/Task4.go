@@ -5,7 +5,7 @@ import (
 )
 
 func task4() {
-	fmt.Println("	Task4: Mini Calculator")
+	fmt.Println("	📋Task4: Mini Calculator")
 	home()
 }
 
@@ -66,7 +66,7 @@ func mul(c, d float64) float64 {
 
 func div(c, d float64) {
 	if d == 0 {
-		fmt.Println("Error: division by zero ❌")
+		fmt.Println("Error: division by zero‼️")
 		return
 	}
 	fmt.Printf("Result: %.2f / %.2f = %.2f\n", c, d, c/d)
@@ -74,7 +74,7 @@ func div(c, d float64) {
 
 func mod(c, d float64) {
 	if d == 0 {
-		fmt.Println("Error: modulus by zero ❌")
+		fmt.Println("Error: modulus by zero‼️")
 		return
 	}
 	fmt.Printf("Result: %.2f %% %.2f = %.2f\n", c, d, float64(int(c)%int(d)))

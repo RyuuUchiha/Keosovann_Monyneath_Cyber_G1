@@ -4,7 +4,7 @@ import "fmt"
 
 func task3() {
 
-	fmt.Println("	Task 3: Bitwise and Assignment Opr.")
+	fmt.Println("	📋Task 3: Bitwise and Assignment Opr.")
 
 	var a, b int
 
