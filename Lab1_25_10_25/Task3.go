@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"bufio"
+	"fmt"
+	"os"
+)
 
 func task3() {
 
@@ -8,11 +12,19 @@ func task3() {
 
 	var a, b int
 
-	fmt.Print("Enter first integer (a): ")
-	fmt.Scan(&a)
+	fmt.Print("Enter first integer(a): ")
+	if _, err := fmt.Scan(&a); err != nil {
+		fmt.Println("❌ Invalid input! Please enter a number only.")
+		bufio.NewReader(os.Stdin).ReadString('\n')
+		return
+	}
 
-	fmt.Print("Enter second integer (b): ")
-	fmt.Scan(&b)
+	fmt.Print("Enter second integer(b): ")
+	if _, err := fmt.Scan(&b); err != nil {
+		fmt.Println("❌ Invalid input! Please enter a number only.")
+		bufio.NewReader(os.Stdin).ReadString('\n')
+		return
+	}
 
 	fmt.Println("\n--- Bitwise Operations ---")
 	myAND(a, b)

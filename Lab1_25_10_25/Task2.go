@@ -1,16 +1,29 @@
 package main
 
-import "fmt"
+import (
+	"bufio"
+	"fmt"
+	"os"
+)
 
-func task2(){
+func task2() {
+
 	fmt.Println("	📋Task 2: Logical Operator")
 	var num4, num5 int
 
 	fmt.Print("Enter first integer: ")
-	fmt.Scan(&num4)
+	if _, err := fmt.Scan(&num4); err != nil {
+		fmt.Println("❌ Invalid input! Please enter a number only.")
+		bufio.NewReader(os.Stdin).ReadString('\n')
+		return
+	}
 
 	fmt.Print("Enter second integer: ")
-	fmt.Scan(&num5)
+	if _, err := fmt.Scan(&num5); err != nil {
+		fmt.Println("❌ Invalid input! Please enter a number only.")
+		bufio.NewReader(os.Stdin).ReadString('\n')
+		return
+	}
 
 	fmt.Println("\n--- Results ---")
 	and := num4 > 0 && num5 > 0

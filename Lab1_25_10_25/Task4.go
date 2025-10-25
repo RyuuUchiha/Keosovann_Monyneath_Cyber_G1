@@ -1,7 +1,9 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"os"
 )
 
 func task4() {
@@ -19,37 +21,59 @@ func home() {
 	fmt.Println("4) Division ➗")
 	fmt.Println("5) Modulus 🧩")
 	fmt.Println("6) Exit 🚪")
-	fmt.Print("Please choose the operation: ")
+
 	var choice int
-	fmt.Scan(&choice)
+	fmt.Print("Please choose the operation: ")
+	if _, err := fmt.Scan(&choice); err != nil {
+		fmt.Println("❌ Invalid input! Please enter a number between 1–6.")
+		bufio.NewReader(os.Stdin).ReadString('\n')
+		home()
+		return
+	}
+
+	if choice < 1 || choice > 6 {
+		fmt.Println("⚠️ Invalid choice! Please enter a number between 1–6.")
+		home()
+		return
+	}
+
 	if choice == 6 {
 		fmt.Println("Goodbye!👋 Good luck🍀")
 		return
 	}
+
 	var c, d float64
 	fmt.Print("Enter first number: ")
-	fmt.Scan(&c)
+	if _, err := fmt.Scan(&c); err != nil {
+		fmt.Println("❌ Invalid input! Please enter a valid number.")
+		bufio.NewReader(os.Stdin).ReadString('\n')
+		home()
+		return
+	}
+
 	fmt.Print("Enter second number: ")
-	fmt.Scan(&d)
+	if _, err := fmt.Scan(&d); err != nil {
+		fmt.Println("❌ Invalid input! Please enter a valid number.")
+		bufio.NewReader(os.Stdin).ReadString('\n')
+		home()
+		return
+	}
+
 	switch choice {
 	case 1:
 		fmt.Printf("Result: %.2f + %.2f = %.2f\n", c, d, add(c, d))
-		home()
 	case 2:
 		fmt.Printf("Result: %.2f - %.2f = %.2f\n", c, d, sub(c, d))
-		home()
 	case 3:
 		fmt.Printf("Result: %.2f * %.2f = %.2f\n", c, d, mul(c, d))
-		home()
 	case 4:
 		div(c, d)
-		home()
 	case 5:
 		mod(c, d)
-		home()
 	default:
-		fmt.Println("Invalid choice, try again. 🔄️")
+		fmt.Println("⚠️ Invalid choice! Please choose between 1–6.")
 	}
+	home()
 }
 
 func add(c, d float64) float64 {
@@ -66,7 +90,7 @@ func mul(c, d float64) float64 {
 
 func div(c, d float64) {
 	if d == 0 {
-		fmt.Println("Error: division by zero‼️")
+		fmt.Println("⚠️ Error: division by zero‼️")
 		return
 	}
 	fmt.Printf("Result: %.2f / %.2f = %.2f\n", c, d, c/d)
@@ -74,7 +98,7 @@ func div(c, d float64) {
 
 func mod(c, d float64) {
 	if d == 0 {
-		fmt.Println("Error: modulus by zero‼️")
+		fmt.Println("⚠️ Error: modulus by zero‼️")
 		return
 	}
 	fmt.Printf("Result: %.2f %% %.2f = %.2f\n", c, d, float64(int(c)%int(d)))
