@@ -1,0 +1,9 @@
+Lab #4: Mini-CTF (Cat Leak)
+
+- In this CTF I just found the flag from the url:
+"/www.google.com/search?q=%62%36%63%63%62%34%65%63%65%35%34%35%34%64%63%61%65%35%31%37%37%38%62%33%65%32%33%39%65%62%63%32&rlz=1C5CHF"
+
+- And when input it in the browser,then I see a sites (MD5 reverse lookup) that show the MD5 reverse for b6ccb4ece5454dcae51778b3e239ebc2 
+and the string of the hash is "meowmeow"
+
+- So the final flag is cryptoCTF{meowmeow}. 
