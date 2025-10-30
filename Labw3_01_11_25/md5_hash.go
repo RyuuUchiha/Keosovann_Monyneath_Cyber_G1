@@ -50,7 +50,7 @@ func lab1() {
 	defer f.Close()
 
 	scanner := bufio.NewScanner(f)
-	// increase buffer if you suspect very long lines
+	// increase buffer
 	const maxCapacity = 10 * 1024 * 1024
 	buf := make([]byte, 0, 64*1024)
 	scanner.Buffer(buf, maxCapacity)
@@ -102,11 +102,6 @@ func lab1() {
 	}
 
 	fmt.Printf("\n❌ Finished. Tried %d passwords. No match found.\n", tried)
-	fmt.Fprintf(vf, "\nFinished at %s. Tried %d passwords. No match found.\n", time.Now().Format(time.RFC3339), tried)
-
-	// ensure verbose file is flushed to disk
-	if err := vf.Sync(); err != nil {
-		log.Printf("⚠️ warning: failed to sync verbose file: %v", err)
-	}
+	fmt.Fprintf(vf, "\n❌ Finished at %s. Tried %d passwords. No match found.\n", time.Now().Format(time.RFC3339), tried)
 
 }
